@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/cyberangel1/atlas/internal/config"
+	"github.com/cyberangel1/atlas/internal/health"
 )
 
 func main() {
@@ -13,9 +14,16 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Println("Atlas configuration loaded successfully")
+	fmt.Println("Atlas Health Engine")
+	fmt.Println("-------------------")
 
 	for _, service := range cfg.Services {
-		fmt.Printf("- %s [%s] -> %s\n", service.Name, service.Type, service.URL)
+		status := health.CheckService(service)
+
+		if status.State == "UP" {
+			fmt.Printf("✓ %s [%s] %s | code=%d | latency=%s\n", status.Name, status.Type, status.State, status.StatusCode, status.Latency)
+		} else {
+			fmt.Printf("✗ %s [%s] %s | code=%d | latency=%s | error=%s\n", status.Name, status.Type, status.State, status.StatusCode, status.Latency, status.Error)
+		}
 	}
 }
