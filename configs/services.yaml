@@ -7,6 +7,30 @@ services:
     url: https://github.com
     type: http
 
-  - name: Local Flask App
-    url: http://127.0.0.1:5000
+  - name: Microsoft Learn
+    url: https://learn.microsoft.com
+    type: http
+
+  - name: OpenAI
+    url: https://openai.com
+    type: http
+
+  - name: Procore
+    url: https://www.procore.com
+    type: http
+
+  - name: AWS
+    url: https://aws.amazon.com
+    type: http
+
+  - name: Azure Portal
+    url: https://portal.azure.com
+    type: http
+
+  - name: Cloudflare
+    url: https://www.cloudflare.com
+    type: http
+
+  - name: Grafana
+    url: https://grafana.com
     type: http

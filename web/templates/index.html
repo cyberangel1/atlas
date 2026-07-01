@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Atlas Control Plane</title>
+
+    <style>
+
+        body{
+            background:#070707;
+            color:rgb(35, 211, 58);
+            font-family:Arial;
+            margin:40px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th,td{
+            padding:15px;
+            border-bottom:1px solid #333;
+        }
+
+        th{
+            background:#111827;
+        }
+
+        .up{
+            color:#22c55e;
+            font-weight:bold;
+        }
+
+        .degraded{
+            color:#f59e0b;
+            font-weight:bold;
+        }
+
+        .down{
+            color:#ef4444;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Atlas Infrastructure Control Plane</h1>
+
+<table>
+
+<tr>
+
+<th>Service</th>
+
+<th>Status</th>
+
+<th>HTTP</th>
+
+<th>Latency</th>
+
+</tr>
+
+{{range .}}
+
+<tr>
+
+<td>{{.Name}}</td>
+
+<td>
+
+{{if eq .State "UP"}}
+
+<span class="up">UP</span>
+
+{{else if eq .State "DEGRADED"}}
+
+<span class="degraded">DEGRADED</span>
+
+{{else}}
+
+<span class="down">DOWN</span>
+
+{{end}}
+
+</td>
+
+<td>{{.StatusCode}}</td>
+
+<td>{{.Latency}}</td>
+
+</tr>
+
+{{end}}
+
+</table>
+
+</body>
+
+</html>
