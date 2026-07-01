@@ -8,6 +8,7 @@ Atlas is designed to monitor, manage, and automate infrastructure through a simp
 
 <p align="center">
   <img src="screenshots/dashboard.png" width="900">
+  <img src="screenshots/terminal output.png" width="900">
 </p>
 
 ---
