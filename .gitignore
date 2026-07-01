@@ -1,0 +1,19 @@
+# Binaries
+atlas
+*.exe
+
+# IDE
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Coverage
+coverage.out
